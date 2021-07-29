@@ -21,16 +21,21 @@
   height: 64px;
   overflow: hidden;
   line-height: 64px;
-  background: #001529;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  padding: 0 16px;
 
-  h1 {
+  .title {
     display: inline-block;
     color: #fff;
     font-weight: 600;
     font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -59,7 +64,12 @@ nz-content {
 }
 
 .ant-layout-sider-collapsed {
-  .sidebar-logo h1 {
-    display: none;
+  .sidebar-logo {
+    .title {
+      opacity: 0;
+    }
+    .icon {
+      right: 16px;
+    }
   }
 }

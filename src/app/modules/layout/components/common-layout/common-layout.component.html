@@ -2,19 +2,15 @@
     <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
         [nzTrigger]="null">
         <div class="sidebar-logo">
-            <h1>BUCKINGHAMSHIRE</h1>
-            <button nz-button nzType="link" nzGhost (click)="isCollapsed = !isCollapsed">
+            <h1 class="title">BUCKINGHAMSHIRE</h1>
+            <button class="icon" nz-button nzType="link" nzGhost nzSize="large" (click)="isCollapsed = !isCollapsed">
                 <i nz-icon nzType="menu"></i>
             </button>
         </div>
         <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-            <li nz-menu-item nzMatchRouter>
-                <i nz-icon nzType="bar-chart"></i>
-                <span routerLink="/dashboard">Dashboard</span>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-                <i nz-icon nzType="bar-chart"></i>
-                <span routerLink="/escalations">Escalations</span>
+            <li *ngFor="let item of menu" nz-menu-item nzMatchRouter>
+                <i class="text-xl mr-2" nz-icon [nzType]="item.icon"></i>
+                <span [routerLink]="item.link">{{item.title}}</span>
             </li>
         </ul>
     </nz-sider>
