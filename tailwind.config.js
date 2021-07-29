@@ -5,7 +5,12 @@ module.exports = {
         content: ['./src/**/*.{html,ts}']
     },
     theme: {
-        extend: {},
+        extend: {
+            textColor: {
+                primary: 'var(--color-primary)',
+                secondary: 'var(--color-secondary)'
+            }
+        },
     },
     variants: {},
     plugins: [],

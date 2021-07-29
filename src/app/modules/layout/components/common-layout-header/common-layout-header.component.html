@@ -1,0 +1,14 @@
+<div class="flex justify-end items-center px-4">
+    <span class="mx-2 cursor-pointer" nz-popover nzPopoverTitle="Title" [(nzPopoverVisible)]="visible"
+        nzPopoverTrigger="click" [nzPopoverTitle]="titleTemplate" [nzPopoverContent]="contentTemplate"
+        nzPopoverPlacement="bottomRight">
+        <nz-avatar nzIcon="user" class="text-primary" [nzSrc]="">
+        </nz-avatar>
+    </span>
+    <ng-template #titleTemplate>
+        Profile
+    </ng-template>
+    <ng-template #contentTemplate>
+        <a>Close</a>
+    </ng-template>
+</div>
