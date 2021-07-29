@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'bhs-common-layout-header',
@@ -7,11 +7,18 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommonLayoutHeaderComponent implements OnInit {
-  visible: boolean = false;
+  avatarVisible: boolean = false;
+  @ViewChild('avatar', { read: ElementRef }) avatarElRef: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  @HostListener('document:click', ['$event'])
+  clickout(event: MouseEvent) {
+    if (!this.avatarElRef.nativeElement.contains(event.target)) {
+      this.avatarVisible = false;
+    }
+  }
 }
