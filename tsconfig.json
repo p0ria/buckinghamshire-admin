@@ -25,6 +25,12 @@
       "@app/*": [
         "src/app/*"
       ],
+      "@core/*": [
+        "src/app/modules/core/*"
+      ],
+      "@auth/*": [
+        "src/app/modules/auth/*"
+      ],
       "@layout/*": [
         "src/app/modules/layout/*"
       ],

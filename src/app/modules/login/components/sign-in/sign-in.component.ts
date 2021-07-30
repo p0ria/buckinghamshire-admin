@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '@app/modules/core/services/auth.service';
 
 @Component({
   selector: 'bhs-sign-in',
@@ -10,7 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignInComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       rememberMe: [null]
@@ -23,7 +26,15 @@ export class SignInComponent implements OnInit {
   submit = () => {
     this.updateFormValueAndValidity();
     if (this.form.valid) {
+      this.authService.checkEmailExists(this.form.value.email).subscribe(
+        exists => {
+          if (exists) {
 
+          } else {
+            this.addEmailNotFoundError();
+          }
+        }
+      )
     }
   }
 

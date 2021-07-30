@@ -8,6 +8,8 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './modules/layout/layout.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { CoreModule } from './modules/core/core.module';
 
 registerLocaleData(en);
 
@@ -21,6 +23,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     AppRoutingModule,
     LayoutModule,
+    AuthModule,
+    CoreModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
