@@ -1,14 +1,47 @@
 <div class="h-full flex justify-end items-center px-4">
-    <div #avatar class="mx-2 cursor-pointer" nz-popover nzPopoverTitle="Title" [nzPopoverVisible]="avatarVisible"
-        [nzPopoverTrigger]="null" [nzPopoverTitle]="titleTemplate" [nzPopoverContent]="contentTemplate"
-        nzPopoverPlacement="bottomRight" (click)="avatarVisible = !avatarVisible">
-        <nz-avatar nzIcon="user" class="text-primary" [nzSrc]="">
+    <!-- notification -->
+    <div #notification class="px-4 mx-4 cursor-pointer" nz-popover [nzPopoverVisible]="notificationVisible$ | async"
+        [nzPopoverTrigger]="null" [nzPopoverTitle]="notificationTitleTemplate"
+        [nzPopoverContent]="notificationContentTemplate" nzPopoverPlacement="bottomRight"
+        (click)="toggleNotificationVisible()">
+        <nz-badge class="text-xl transform translate-y-1" [nzDot]="true">
+            <i class="text-primary" nz-icon nzType="bell" nzTheme="outline"></i>
+        </nz-badge>
+
+    </div>
+    <!-- avatar -->
+    <div #avatar class="mx-2 cursor-pointer" nz-popover [nzPopoverVisible]="avatarVisible$ | async"
+        [nzPopoverTrigger]="null" [nzPopoverTitle]="avatarTitleTemplate" [nzPopoverContent]="avatarContentTemplate"
+        nzPopoverPlacement="bottomRight" (click)="toggleAvatarVisible()">
+        <nz-avatar class="text-primary" nzIcon="user" [nzSrc]="">
         </nz-avatar>
     </div>
-    <ng-template #titleTemplate>
-        Profile
-    </ng-template>
-    <ng-template #contentTemplate>
-        <a>Close</a>
-    </ng-template>
 </div>
+<!-- avatar -->
+<ng-template #avatarTitleTemplate>
+    <h4 #avatarTitle class="text-primary py-3 px-4 w-60">Profile</h4>
+</ng-template>
+<ng-template #avatarContentTemplate>
+    <ul #avatarContent class="flex flex-col py-4 gap-4">
+        <li class="flex justify-between items-center cursor-pointer px-8 pb-4 border-b-2 border-solid border-gray-50">
+            <span>Edit my profile</span>
+            <i nz-icon nzType="right" nzTheme="outline"></i>
+        </li>
+        <li class="flex justify-between items-center cursor-pointer px-8 pb-4 border-b-2 border-solid border-gray-50">
+            <span>Change password</span>
+            <i nz-icon nzType="right" nzTheme="outline"></i>
+        </li>
+        <li class="flex justify-between items-center cursor-pointer px-8 text-red-500 font-medium">
+            <span>Log out</span>
+            <i nz-icon nzType="poweroff" nzTheme="outline"></i>
+        </li>
+    </ul>
+</ng-template>
+
+<!-- notification -->
+<ng-template #notificationTitleTemplate>
+    <h4 #notificationTitle class="text-primary py-3 px-4 w-60">Notifications</h4>
+</ng-template>
+<ng-template #notificationContentTemplate>
+    <div #notificationContent></div>
+</ng-template>

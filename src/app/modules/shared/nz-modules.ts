@@ -5,6 +5,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
 
 export const NZ_MODULES = [
     NzLayoutModule,
@@ -13,5 +15,7 @@ export const NZ_MODULES = [
     NzButtonModule,
     NzAvatarModule,
     NzDropDownModule,
-    NzPopoverModule
+    NzPopoverModule,
+    NzDividerModule,
+    NzBadgeModule
 ]

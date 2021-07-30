@@ -7,7 +7,11 @@ module.exports = {
     theme: {
         extend: {
             textColor: {
-                primary: 'var(--color-primary)',
+                primary: {
+                    DEFAULT: 'var(--color-primary)',
+                    dark: 'var(--color-primary-dark)',
+                    light: 'var(--color-primary-light)'
+                },
                 secondary: 'var(--color-secondary)'
             }
         },
