@@ -13,6 +13,14 @@ module.exports = {
                     light: 'var(--color-primary-light)'
                 },
                 secondary: 'var(--color-secondary)'
+            },
+            borderColor: {
+                DEFAULT: 'var(--color-border)'
+            },
+            spacing: {
+                '128': '32rem',
+                '132': '34rem',
+                '160': '40rem'
             }
         },
     },

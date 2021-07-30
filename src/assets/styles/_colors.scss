@@ -5,4 +5,5 @@
   --color-secondary: #{$brand-secondary};
   --color-primary-dark: #{darken($brand-primary, 20%)};
   --color-primary-light: #{lighten($brand-primary, 20%)};
+  --color-border: #{$border-color};
 }

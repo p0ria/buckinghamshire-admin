@@ -1,0 +1,20 @@
+<div class="xl:px-44 pt-44 flex justify-center xl:block">
+    <div class="w-160 h-128">
+        <h2>WELCOME TO BUCKINGHAMSHIRE!</h2>
+        <p class="mt-2 mb-8">Please type your email address.</p>
+
+        <form nz-form nzLayout='vertical'>
+            <nz-form-item>
+                <nz-form-label nzFor="email">E-mail</nz-form-label>
+                <nz-form-control>
+                    <input nz-input id="email" type="email" placeholder="Sample@gmail.com">
+                </nz-form-control>
+            </nz-form-item>
+            <label nz-checkbox class="flex items-center font-medium">
+                Remember me on this device
+            </label>
+            <button class="mt-8 w-52" nz-button nzType="primary" nzSize="large" nzShape="round"
+                [nzLoading]='false'>Next</button>
+        </form>
+    </div>
+</div>
