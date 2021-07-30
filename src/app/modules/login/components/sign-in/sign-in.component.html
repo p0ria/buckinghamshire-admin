@@ -3,11 +3,17 @@
         <h2>WELCOME TO BUCKINGHAMSHIRE!</h2>
         <p class="mt-2 mb-8">Please type your email address.</p>
 
-        <form nz-form nzLayout='vertical'>
+        <form [formGroup]="form" nz-form nzLayout='vertical' (ngSubmit)="submit()">
             <nz-form-item>
                 <nz-form-label nzFor="email">E-mail</nz-form-label>
-                <nz-form-control>
-                    <input nz-input id="email" type="email" placeholder="Sample@gmail.com">
+                <nz-form-control [nzErrorTip]="emailError">
+                    <input nz-input id="email" type="email" placeholder="Sample@gmail.com" formControlName="email">
+                    <ng-template #emailError let-control>
+                        <ng-container *ngIf="control.hasError('required')">Please enter your E-mail!</ng-container>
+                        <ng-container *ngIf="control.hasError('email')">This is not a valid E-mail!</ng-container>
+                        <ng-container *ngIf="control.hasError('notFound')">The email address does not exist!
+                        </ng-container>
+                    </ng-template>
                 </nz-form-control>
             </nz-form-item>
             <label nz-checkbox class="flex items-center font-medium">
