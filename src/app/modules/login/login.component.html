@@ -5,7 +5,8 @@
             <a class="text-white">Terms & Conditions</a> | <a class="text-white">Privacy Policy</a>
         </div>
     </div>
-    <div class="flex-1 h-full">
-        <router-outlet></router-outlet>
+    <div class="flex-1 h-full" [ngSwitch]="state$ | async">
+        <bhs-sign-in-password *ngSwitchCase="LoginState.EnterPassword"></bhs-sign-in-password>
+        <bhs-sign-in-email *ngSwitchDefault></bhs-sign-in-email>
     </div>
 </div>

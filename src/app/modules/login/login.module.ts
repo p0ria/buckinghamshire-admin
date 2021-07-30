@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { SharedModule } from '../shared/shared.module';
+import { SignInEmailComponent } from './components/sign-in-email/sign-in-email.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { SharedModule } from '../shared/shared.module';
-import { SignInComponent } from './components/sign-in/sign-in.component';
-
-
+import { SignInPasswordComponent } from './components/sign-in-password/sign-in-password.component';
 @NgModule({
   declarations: [
     LoginComponent,
-    SignInComponent
+    SignInEmailComponent,
+    SignInPasswordComponent
   ],
   imports: [
     SharedModule,

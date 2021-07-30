@@ -28,6 +28,9 @@
       "@core/*": [
         "src/app/modules/core/*"
       ],
+      "@store/*": [
+        "src/app/modules/store/*"
+      ],
       "@auth/*": [
         "src/app/modules/auth/*"
       ],

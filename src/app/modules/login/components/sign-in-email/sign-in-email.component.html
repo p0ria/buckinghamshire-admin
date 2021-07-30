@@ -1,6 +1,6 @@
-<div class="xl:px-44 pt-44 flex justify-center xl:block">
-    <div class="w-160 h-128">
-        <h2>WELCOME TO BUCKINGHAMSHIRE!</h2>
+<div class="xl:px-36 pt-44 flex justify-center xl:block">
+    <div class="w-128 h-128">
+        <h2>{{'Welcome to Buckinghamshire!' | uppercase}}</h2>
         <p class="mt-2 mb-8">Please type your email address.</p>
 
         <form [formGroup]="form" nz-form nzLayout='vertical' (ngSubmit)="submit()">
@@ -16,7 +16,7 @@
                     </ng-template>
                 </nz-form-control>
             </nz-form-item>
-            <label nz-checkbox class="flex items-center font-medium">
+            <label nz-checkbox class="flex items-center font-medium" formControlName="rememberMe">
                 Remember me on this device
             </label>
             <button class="mt-8 w-60" nz-button nzType="primary" nzSize="large" nzShape="round"

@@ -1,17 +1,20 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { actionAuthLoginEmailSuccess } from '@app/modules/auth/store/auth.actions';
 import { AuthService } from '@app/modules/core/services/auth.service';
+import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'bhs-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss'],
+  selector: 'bhs-sign-in-email',
+  templateUrl: './sign-in-email.component.html',
+  styleUrls: ['./sign-in-email.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SignInComponent implements OnInit {
+export class SignInEmailComponent implements OnInit {
   form: FormGroup;
 
   constructor(
+    private store: Store,
     private fb: FormBuilder,
     private authService: AuthService) {
     this.form = this.fb.group({
@@ -21,6 +24,7 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   submit = () => {
@@ -29,7 +33,7 @@ export class SignInComponent implements OnInit {
       this.authService.checkEmailExists(this.form.value.email).subscribe(
         exists => {
           if (exists) {
-
+            this.store.dispatch(actionAuthLoginEmailSuccess({ ...this.form.value }))
           } else {
             this.addEmailNotFoundError();
           }
@@ -52,5 +56,4 @@ export class SignInComponent implements OnInit {
       notFound: true
     })
   }
-
 }
